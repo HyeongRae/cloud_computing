@@ -1,0 +1,108 @@
+<html>
+
+<head>
+	<link type="text/css" rel="stylesheet" href="/static/css/db.css">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+	<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<title>db</title>
+</head>
+
+<body>
+
+<div class="container" style="padding-bottom:80px">
+	<div class="main">
+	<h1>2018</h1>
+	<h1>PyeongChang</h1>
+	<h1>OLYMPIC</h1>
+	</div>
+</div>
+
+<div class="container">
+	<div class="rank">
+	<h4>Olympic Rank</h4>
+	<br>
+		<table>
+			<tr>
+				<th>country name</td>
+				<th>gold</td>
+				<th>silver</td>
+				<th>bronze</td>				
+			</tr>
+			{% for datas in rank %}
+				<tr>
+				{% for data in datas %}
+					<td>{{ data }}</td>
+				{% endfor %}
+				</tr>
+			{% endfor %}
+		</table>
+	</div>
+</div>
+<div class="container">
+	<div class="athlete">
+		<h4>Athlete</h4>
+		<br>
+		<form action ="{% url 'db_index' %}" method="POST">
+		{% csrf_token %}
+				<label>Find Athlete</label> <input type="text" name="find_athlete" value =""/>
+				<input type="submit" value="Find"/>
+		</form>
+		
+		<table>
+			<tr>
+				<th>player id</td>
+				<th>name</td>
+				<th>gender</td>
+				<th>birth</td>
+				<th>country name</th>
+			</tr>
+			{% for datas in athlete %}
+				<tr>
+				{% for data in datas %}
+					<td>{{ data }}</td>
+				{% endfor %}
+				</tr>
+			{% endfor %}
+		</table>
+	</div>
+</div>
+
+<div class="container" style="margin-bottom: 100px">
+	<div class="game">
+		<h4>Olympic Game</h4>
+		<br>
+		<form action ="{% url 'db_index' %}" method="POST">
+		{% csrf_token %}
+				<select name="find_game" onchange="this.form.submit()">
+					<option value="" {% if find_game == ""%}selected{% endif %}>All</option>
+					<option value="루지" {% if find_game == "루지"%}selected{% endif %}>Luge</option>
+					<option value="피겨" {% if find_game == "피겨"%}selected{% endif %}>Figure Skating</option>
+				</select>
+		</form>
+		
+		<table>
+			<tr>
+				<th>index</td>
+				<th>schedule</td>
+				<th>round</td>
+				<th>stadium</td>
+				<th>game name</th>
+			</tr>
+			{% for datas in game %}
+				<tr>
+				{% for data in datas %}
+					<td>{{ data }}</td>
+				{% endfor %}
+				</tr>
+			{% endfor %}
+		</table>
+	</div>
+</div>
+</body>
+
+</html>

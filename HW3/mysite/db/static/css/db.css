@@ -1,0 +1,57 @@
+body {
+    font: 400 15px/1.8 Lato, sans-serif;
+    color: #777;
+}
+h3{      
+    font-size: 35px !important;
+}
+
+.main {
+	float: left;
+}
+.main h1 {
+	font-weight: bold !important;
+}
+
+.rank, .athlete, .game {
+	text-align: center;
+	padding-left : 10px;
+}
+.rank h4, .athlete h4, .game h4 {
+	font-size: 22px;
+	font-weight: bold !important;
+}
+table {
+	margin: auto;
+	padding-left: 10px;
+}
+
+td, th {
+	padding: 10px !important;
+	border: 1px solid;
+}
+
+.left_line{
+	border: 3px;
+	border-left-style: solid;
+	margin-left: 5px;
+	padding-left: 10px;
+}
+.container {
+    padding: 80px 80px 0px 80px;
+}
+.center {
+	width: 640px;
+	position: absolute; 
+	left: 50%; 
+	margin-left: -320px;
+}
+
+.message table, .message th, .message td{
+	border : 2px solid;
+	border-color : #777;
+}
+.message td, .message th {
+	padding : 10px;
+	
+}
